@@ -22,13 +22,14 @@ config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
 
 endif
 
-# Input Device(pmw3610)のためのコンフィグ
-if SHIELD_ZARUBALL_RIGHT
-
-# Other settings
+if SHIELD_ZARUBALL_DONGLE || SHIELD_ZARUBALL_RIGHT
 
 config ZMK_POINTING
     default y
+
+endif
+
+if SHIELD_ZARUBALL_RIGHT
 
 # Assuming pointing device uses SPI
 config SPI

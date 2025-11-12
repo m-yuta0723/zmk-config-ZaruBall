@@ -12,3 +12,10 @@
         events = <0>;
     };
 };
+
+#include "ZaruBall.dtsi"
+#include <input/processors.dtsi>
+
+&trackball_listener {
+    status = "okay";
+};
