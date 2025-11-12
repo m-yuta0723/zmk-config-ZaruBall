@@ -110,9 +110,6 @@
     };
 };
 
-&kscan0 {
-    col-gpios = 
-};
 
 #include "ZaruBall.dtsi"
 #include <input/processors.dtsi>
