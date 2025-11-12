@@ -15,6 +15,7 @@
 
 #include "ZaruBall.dtsi"
 #include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 
 &trackball_listener {
     status = "okay";
@@ -23,7 +24,7 @@
     scroll {
         layers = <3>;
         input-processors =
-            <&zip_xy_transform IINPUT_TRANSFORM_X_INVERT>,
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
             <&zip_xy_to_scroll_mapper>;
     };
 };
