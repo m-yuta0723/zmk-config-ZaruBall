@@ -108,7 +108,7 @@
             , <&key_physical_attrs 150 100 1450  450       0     0     0>
             ;
     };
-}:
+};
 
 &kscan0 {
     col-gpios = 
