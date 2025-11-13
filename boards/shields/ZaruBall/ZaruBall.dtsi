@@ -112,21 +112,21 @@
 };
 
 // kscan
-/ {
-    kscan0: kscan0 {
-        compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row";
-        wakeup-source;
+// / {
+//     kscan0: kscan0 {
+//         compatible = "zmk,kscan-gpio-matrix";
+//         diode-direction = "col2row";
+//         wakeup-source;
 
-        row-gpios
-            = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ;
-    };
-};
+//         row-gpios
+//             = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+//             , <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+//             , <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+//             , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+//             , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+//             ;
+//     };
+// };
 
 // encoder
 / {
@@ -155,3 +155,23 @@
 //         status = "disabled";
 //     };
 // };
+
+
+
+/ {
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        trackball_split: trackball_split@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+        };
+    };
+
+    trackball_listener: trackball_listener {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&trackball_split>;
+    };
+};
